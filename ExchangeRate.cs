@@ -6,39 +6,33 @@ using System.Threading.Tasks;
 
 namespace calculator
 {
-    internal class ExchangeRate1
+    public class ExchangeRate
     {
-        Currencies _firstCurrency;
-        Currencies _secondCurrency;
-        float _value;
-        int CurrencyCount = 1;
+        public Currencies FirstCurrency;
+        public Currencies SecondCurrency;
+        public float Value;
+        public int CurrencyCount = 1;
 
-        public ExchangeRate1 (Currencies firstCurrency, Currencies secondCurrency)
+        public ExchangeRate (Currencies firstCurrency, Currencies secondCurrency)
         {
-            _firstCurrency=firstCurrency;
-            _secondCurrency=secondCurrency;
+            FirstCurrency=firstCurrency;
+            SecondCurrency=secondCurrency;
         }
-        public ExchangeRate1(Currencies firstCurrency, Currencies secondCurrency, float value) :this (firstCurrency,secondCurrency)
+        public ExchangeRate(Currencies firstCurrency, Currencies secondCurrency, float value) :this (firstCurrency,secondCurrency)
         {
-          _value=value;
+            Value=value;
         }
         public override string ToString()
         {
-            string newCurrency = string.Format("{0:f2}", CurrencyCount);
-            string newValue = string.Format("{0:f2}", _value);
-            string result = $"{newCurrency} {_firstCurrency}={newValue} {_secondCurrency}";
-            return result;
+            return $"{string.Format("{0:f2}", CurrencyCount)} {FirstCurrency} = {string.Format("{0:f2}", Value)} {SecondCurrency}";
         }
-        public float Value
+        public void SetValue(float value)
         {
-            get { return _value; }
-            set { _value = value; }
+            Value = value;
         }
-        public int _CurrencyCount
+        public void SetCurrencyCount(int currencyCount)
         {
-            set { CurrencyCount = value; }
+            CurrencyCount = currencyCount;
         }
-        public Currencies FirstCurrency => _firstCurrency;
-        public Currencies SecondCurrency => _secondCurrency;
     }
 }

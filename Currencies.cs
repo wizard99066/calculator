@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace calculator
 {
-    enum Currencies
+    public enum Currencies
     {  USD, //united states dollar
        EUR, // EURo
        GBP,//Great Britain Pound
