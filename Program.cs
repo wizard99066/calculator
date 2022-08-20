@@ -28,7 +28,7 @@ namespace calculator
 {
     internal class Program
     {
-        static int Input()
+        static int Inlet()
         {
             string temp = Console.ReadLine();
             int n = 0;
@@ -55,14 +55,14 @@ namespace calculator
         {
             Console.Write("Введите наименование валюты: ");
             string? temp = Console.ReadLine();
-            object findCur;
-            while (!Enum.TryParse(typeof(Currencies), temp.ToUpper(), out findCur))
+            object findCurr;
+            while (!Enum.TryParse(typeof(Currencies), temp.ToUpper(), out findCurr))
             {
                 Console.Write("Такой валюты нет в данный момент\nВведите еще раз: ");
                 temp = Console.ReadLine();
             }
 
-            return (Currencies)findCur;
+            return (Currencies)findCurr;
         }
 
         static ExchangeRate[] CreateExchangeRateArray(Currencies userCurrencies)
@@ -95,7 +95,7 @@ namespace calculator
             Currencies currencies2 = (Currencies)rand.Next(10);
             float randomCOurse = (float)randomCourse;
 
-            if (currencies1 == currencies2) randomCourse = 1;
+            if (currencies1 == currencies2) randomCOurse = 1;
 
             ExchangeRate exchangeRate = new ExchangeRate(currencies1, currencies2, randomCOurse);
 
@@ -117,7 +117,7 @@ namespace calculator
             ExchangeRate findExchangeRate = currencyConverter.FindExchangeRate(curForExchange, curToExchange);
             Console.WriteLine(findExchangeRate);
             Console.Write("Сумма на обмен: ");
-            int count = Input();
+            int count = Inlet();
             Console.Write("Ваш обмен: ");
             ExchangeRate myExchange = currencyConverter.Convert(curForExchange, curToExchange, count);
             Console.Write(myExchange);
