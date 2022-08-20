@@ -8,11 +8,11 @@ namespace calculator
 {
     public class CurrencyConverter
     {
-        List<ExchangeRate> ExchangeRates;
+        public List<ExchangeRate> ExchangeRates;
 
-        public CurrencyConverter(List<ExchangeRate> exchangeRates)
+        public CurrencyConverter()
         {
-            ExchangeRates = exchangeRates;
+            ExchangeRates = new List<ExchangeRate>(); 
         }
         public void AddExchangeRate(ExchangeRate exchangeRate)
         {
@@ -45,6 +45,8 @@ namespace calculator
         public ExchangeRate? Convert (Currencies CurrcencyFirst, Currencies CurrencySecond, int count)
         {
             ExchangeRate? rate = FindExchangeRate(CurrcencyFirst, CurrencySecond);
+                Console.WriteLine(rate);
+
             if (rate != null)
             {
                 var result = (count * rate.Value) / rate.CurrencyCount;
