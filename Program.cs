@@ -122,6 +122,7 @@ namespace calculator
             ExchangeRate myExchange = currencyConverter.Convert(curForExchange, curToExchange, count);
             Console.Write(myExchange);
             Console.WriteLine();
+            //ссылка на скрин работающей программы https://i.postimg.cc/nc8zmbvm/Screenshot-189.png
         }
     }
 }
